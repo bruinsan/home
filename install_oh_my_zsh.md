@@ -51,8 +51,11 @@ wget https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolor
 mv dircolors.ansi-dark .solarized
 echo eval "dircolors ~/.solarized/dircolors.ansi-dark" >> ~/.zshrc
 ```
+### Set ZSH as default shell
+```bash
+chsh -s $(which zsh)
+```
 
-
-> Restart Terminator and you're done!
+> Restart Terminal and you're done!
 
 ### That's it!
