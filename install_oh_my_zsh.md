@@ -1,5 +1,5 @@
 ## Install ZSH
-
+eitcha
 ```bash
 sudo apt-get install zsh
 ```
