@@ -34,10 +34,6 @@ mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
 ## Configure ZSH
 
-```bash
-vim ~/.zshrc
-```
-
 ### Theme
 Change [ZSH_THEME="robbyrussell"] to [ZSH_THEME="agnoster"]
 ```bash
@@ -49,7 +45,7 @@ sed -i 's/robbyrussell/agnoster/g' ~/.zshrc
 mkdir ~/.solarized
 wget https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
 mv dircolors.ansi-dark .solarized
-echo eval "dircolors ~/.solarized/dircolors.ansi-dark" >> ~/.zshrc
+echo "eval \`dircolors ~/.solarized/dircolors.ansi-dark\`" >> ~/.zshrc
 ```
 ### Set ZSH as default shell
 ```bash
