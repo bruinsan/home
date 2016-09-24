@@ -1,15 +1,15 @@
-### Make a bootable USB Drive
+# Make a bootable USB Drive
 
 You should have already downloaded an ISO image
 
 ## Find the USB Drive path on the PC
-# Without the USB drive inserted
+### Without the USB drive inserted
 
 ```bash
 sudo fdisk -l
 ```
 
-# Insert the USB Drive and repeat last command
+### Insert the USB Drive and repeat last command
 This time you should see a new device, e.g. /dev/sdb
 
 ## Burn your USB Drive with the new ISO 
