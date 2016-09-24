@@ -17,3 +17,5 @@ git checkout
 git clone
 
 git init
+
+** git fetch
