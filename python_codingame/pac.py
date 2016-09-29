@@ -25,6 +25,15 @@ for (i = K / 2; i < m - K / 2; ++i) // iterate through image
 }
 '''
 
+input_img = ['..0.0.0.0.0..', '.............', '.0.0.0.0.0.0.', '.............', '...0.0.0.0...', '.0.........0.', '...0.0.0.0...', '.............', '.0.0.0.0.0.0.', '.............', '..0.0.0.0.0..']
+
+
+def convert_point_to_number(instant_map):
+    new_map = []
+    for i in instant_map:
+        new_map.append(i.replace('.','1'))    
+    return new_map
+
 mask = 3    # mask size 3x3
 width = 13  # grid size
 height = 11
