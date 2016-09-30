@@ -31,13 +31,14 @@ input_img = ['..0.0.0.0.0..', '.............', '.0.0.0.0.0.0.', '.............',
 def convert_point_to_number(instant_map):
     new_map = []
     for i in instant_map:
-        new_map.append(i.replace('.','1'))
+        instant_map = i.replace('.','1')
     
     test = []    
-    for j in new_map:
+    for j in instant_map:
         test.append([1 - int(val) for val in j])
     
     return test
+
 '''
 mask = 3    # mask size 3x3
 width = 13  # grid size
