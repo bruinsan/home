@@ -31,9 +31,14 @@ input_img = ['..0.0.0.0.0..', '.............', '.0.0.0.0.0.0.', '.............',
 def convert_point_to_number(instant_map):
     new_map = []
     for i in instant_map:
-        new_map.append(i.replace('.','1'))    
-    return new_map
-
+        new_map.append(i.replace('.','1'))
+    
+    test = []    
+    for j in new_map:
+        test.append([1 - int(val) for val in j])
+    
+    return test
+'''
 mask = 3    # mask size 3x3
 width = 13  # grid size
 height = 11
@@ -49,3 +54,6 @@ for i in range(mask/2, width - k/2):
                 _sum += data * coeff
 
         output_img[i][j] = _sum
+'''
+print convert_point_to_number(input_img)
+
