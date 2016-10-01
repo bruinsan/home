@@ -17,7 +17,7 @@ This time you should see a new device, e.g. /dev/sdb
 Inside the ISO folder do:
 
 ```bash
-dd if=XXXX.iso of=/dev/sdb bs=512k
+sudo dd if=XXXX.iso of=/dev/sdb bs=512k
 ```
 "bs" is the block size and 512k is a conservative and reliable size
 
