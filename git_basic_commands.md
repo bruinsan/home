@@ -19,3 +19,6 @@ git clone
 git init
 
 ** git fetch
+
+
+http://ndpsoftware.com/git-cheatsheet.html
