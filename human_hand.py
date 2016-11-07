@@ -6,7 +6,7 @@ class Hand:
 	    and hand name
 	"""
         self.fingers = []
-	self.ID = ""
+	    self.ID = ""
 
     def setHandName(self, hand_name):
         self.ID = hand_name
@@ -18,7 +18,7 @@ class Hand:
         for x in list_names:
 	    aux = Finger()
 	    aux.setFingerName(x, self.ID)
-            self.fingers.append(aux)
+        self.fingers.append(aux)
 
 
 class Finger:
@@ -27,14 +27,11 @@ class Finger:
         self.hand = ""		# IMPORTANT: used to save the hand associated to the finger
 
     def setFingerName(self, finger_name, hand_name):
-	self.name = finger_name
-	self.hand = hand_name
+	    self.name = finger_name
+	    self.hand = hand_name
 
     def tirarCacaDoNariz(self):
         return "Très bien, on fait quoi maintenant ? On a utilisé {} de la main {}".format(self.name, self.hand)
-
-
-
 
 # ------------------ MAIN PROGRAM ----------------------- #
 
