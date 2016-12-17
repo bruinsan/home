@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<peopleList>
+ <person>
+  <name>Bruno INDRIGO</name>
+  <initCash>10</initCash>
+  <email>bruinsan@gmail.com</email>
+ </person>
+
+ <person>
+  <name>Clementine ORANGE</name>
+  <initCash>7</initCash>
+  <email>cle.orange@orange.fr</email>
+ </person>
+</peopleList>
