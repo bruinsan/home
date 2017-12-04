@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bruno/git/home/c++/sudoku_solver/board.cpp
+board.h
+/home/bruno/git/home/c++/sudoku_solver/board.h
+
+/home/bruno/git/home/c++/sudoku_solver/board.h
+vector
+-
+grid.h
+/home/bruno/git/home/c++/sudoku_solver/grid.h
+
+/home/bruno/git/home/c++/sudoku_solver/grid.cpp
+grid.h
+/home/bruno/git/home/c++/sudoku_solver/grid.h
+
+/home/bruno/git/home/c++/sudoku_solver/grid.h
+vector
+-
+
+/home/bruno/git/home/c++/sudoku_solver/main.cpp
+iostream
+-
+fstream
+-
+vector
+-
+board.h
+/home/bruno/git/home/c++/sudoku_solver/board.h
+

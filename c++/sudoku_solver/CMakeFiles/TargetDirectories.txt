@@ -1,0 +1,3 @@
+/home/bruno/git/home/c++/sudoku_solver/CMakeFiles/edit_cache.dir
+/home/bruno/git/home/c++/sudoku_solver/CMakeFiles/rebuild_cache.dir
+/home/bruno/git/home/c++/sudoku_solver/CMakeFiles/sudoku_solver.dir
