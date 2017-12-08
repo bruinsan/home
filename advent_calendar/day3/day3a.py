@@ -66,11 +66,27 @@ def create_spiral_memory(final_pos):
 		#print final_pos
 	#	print ""
 #	print memory
-	pprint(memory)
+	return memory
 
 
-create_spiral_memory(1)
-create_spiral_memory(2)
-create_spiral_memory(3)
+def find_min(memory, number):
+
+	return 0
+	pass
+
+def calculate_manhattan_distance(nb, memory):
+	# find minimum neighbor
+	dist = 0
+	neighbor = -1
+	while neighbor != 1:
+		neighbor = find_min(memory, nb)
+		dist += 1
+		nb = neighbor
+
+pprint(create_spiral_memory(1))
+memory = create_spiral_memory(2)
+pprint(create_spiral_memory(3))
 #create_spiral_memory(4)
 #create_spiral_memory(1024)
+
+
