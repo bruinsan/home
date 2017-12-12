@@ -1,6 +1,6 @@
 import sys
 from pprint import pprint
-
+from math import sqrt, ceil
 #memory_position = sys.argv[1]
 
 
@@ -42,14 +42,17 @@ def move_down(mem, x, y, actual_nb, times, final_pos):
 
 
 def create_spiral_memory(final_pos):
-	size = int(sys.argv[2])
-	max = int(sys.argv[3])
+	# size = int(sys.argv[2])
+	size = int(ceil(sqrt(final_pos))) + 2
+	# max = int(sys.argv[3])
+	max = final_pos+1
+
 	memory = [[max for x in xrange(size)]
            for y in xrange(size)]  # creating 11x11 matrix
 
 	# RU
-	x_init = 5
-	y_init = 5
+	x_init = len(memory)/2 -1
+	y_init = len(memory)/2 -1
 	start_num = 1
 	memory[x_init][y_init] = start_num
 	add = 1
@@ -69,48 +72,46 @@ def create_spiral_memory(final_pos):
 
 	return memory
 
-"""
-def find_number(matrix, nb):
-	for i, row in enumerate(matrix):
-		for j, col in enumerate(row):
-			if col == nb:
-				return i, j
-"""
-
 def find_min(memory, number):
 	#y, x = find_number(memory, number)
+	found = False
 	for i, row in enumerate(memory):
 			for j, col in enumerate(row):
 				if col == number:
 					y = i
 					x = j
+					found = True
+					break
+			if found:
+				break
+	
+	# print "x = {} \t y = {} \t nb = {}".format(x, y, memory[y][x])
+	positions = [memory[y][x + 1], memory[y][x - 1], memory[y + 1][x], memory[y - 1][x]]
 
-	print memory[x + 1][y], memory[x - 1][y], memory[x][y + 1], memory[x][y - 1]
-	min_nb = min(memory[x + 1][y], memory[x - 1][y],
-	             memory[x][y + 1], memory[x][y - 1])
+	min_nb = min(positions)
 
-	#print "min neighbor = {}".format(min_nb)
+	# print "min neighbor = {}".format(min_nb)
 	return min_nb
-
 
 def calculate_manhattan_distance(nb, memory):
 	# find minimum neighbor
 	dist = 0
 	neighbor = -1
-	print memory
+	# print memory
 	print ""
 	while neighbor != 1:
 		# print memory, nb
 		neighbor = find_min(memory, nb)
 		dist += 1
 		nb = neighbor
-		# print nb
+		# print "distance = {}".format(dist)
 
 	return dist
 
-final_num = int(sys.argv[1])
-memory = create_spiral_memory(final_num)
 #print memory
 #pprint(memory)
-print calculate_manhattan_distance(final_num, memory)
 #find_min(memory, 9)
+final_num = int(sys.argv[1])
+memory = create_spiral_memory(final_num)
+# pprint(memory)
+print calculate_manhattan_distance(final_num, memory)
