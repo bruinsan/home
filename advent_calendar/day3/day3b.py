@@ -4,7 +4,8 @@ from math import sqrt, ceil
 
 def move_right(mem, x, y, times, final_pos):
 	for i in xrange(times):
-		positions = [mem[y + 1][x - 1], mem[y + 1][x], mem[y + 1][x + 1], mem[y][x - 1]]
+		positions = [mem[y+1][x-1], mem[y+1][x], mem[y+1][x+1], mem[y][x-1], mem[y][x-1], mem[y][x], mem[y-1][x-1], mem[y-1][x], mem[y-1][x+1]]
+		print positions
 		actual_nb = sum(positions)
 	#	print x+i+1
 		if actual_nb <= final_pos:
@@ -15,7 +16,7 @@ def move_right(mem, x, y, times, final_pos):
 
 def move_up(mem, x, y, times, final_pos):
 	for i in xrange(times):
-		positions = [mem[y + 1][x - 1], mem[y + 1][x], mem[y + 1][x + 1], mem[y][x - 1]]
+		positions = [mem[y+1][x-1], mem[y+1][x], mem[y+1][x+1], mem[y][x-1], mem[y][x-1], mem[y][x], mem[y-1][x-1], mem[y-1][x], mem[y-1][x+1]]
 		actual_nb = sum(positions)
 		if actual_nb <= final_pos:
 			mem[y + i + 1][x] = actual_nb
@@ -25,7 +26,7 @@ def move_up(mem, x, y, times, final_pos):
 
 def move_left(mem, x, y, times, final_pos):
 	for i in xrange(times):
-		positions = [mem[y + 1][x - 1], mem[y + 1][x], mem[y + 1][x + 1], mem[y][x - 1]]
+		positions = [mem[y+1][x-1], mem[y+1][x], mem[y+1][x+1], mem[y][x-1], mem[y][x-1], mem[y][x], mem[y-1][x-1], mem[y-1][x], mem[y-1][x+1]]
 		actual_nb = sum(positions)
 		if actual_nb <= final_pos:
 			mem[y][x - i - 1] = actual_nb
@@ -35,7 +36,7 @@ def move_left(mem, x, y, times, final_pos):
 
 def move_down(mem, x, y, times, final_pos):
 	for i in xrange(times):
-		positions = [mem[y + 1][x - 1], mem[y + 1][x], mem[y + 1][x + 1], mem[y][x - 1]]
+		positions = [mem[y+1][x-1], mem[y+1][x], mem[y+1][x+1], mem[y][x-1], mem[y][x-1], mem[y][x], mem[y-1][x-1], mem[y-1][x], mem[y-1][x+1]]
 		actual_nb = sum(positions)
 		if actual_nb <= final_pos:
 			mem[y - i - 1][x] = actual_nb
