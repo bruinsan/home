@@ -4,7 +4,7 @@ from math import sqrt, ceil
 
 def move_right(mem, x, y, times, final_pos):
 	for i in xrange(times):
-		positions = [mem[y+1][x-1], mem[y+1][x], mem[y+1][x+1], mem[y][x-1], mem[y][x-1], mem[y][x], mem[y-1][x-1], mem[y-1][x], mem[y-1][x+1]]
+		positions = [mem[y+1][x-1], mem[y+1][x], mem[y+1][x+1], mem[y][x-1], mem[y][x], mem[y][x+1], mem[y-1][x-1], mem[y-1][x], mem[y-1][x+1]]
 		print positions
 		actual_nb = sum(positions)
 	#	print x+i+1
@@ -16,7 +16,7 @@ def move_right(mem, x, y, times, final_pos):
 
 def move_up(mem, x, y, times, final_pos):
 	for i in xrange(times):
-		positions = [mem[y+1][x-1], mem[y+1][x], mem[y+1][x+1], mem[y][x-1], mem[y][x-1], mem[y][x], mem[y-1][x-1], mem[y-1][x], mem[y-1][x+1]]
+		positions = [mem[y+1][x-1], mem[y+1][x], mem[y+1][x+1], mem[y][x-1], mem[y][x], mem[y][x+1], mem[y-1][x-1], mem[y-1][x], mem[y-1][x+1]]
 		actual_nb = sum(positions)
 		if actual_nb <= final_pos:
 			mem[y + i + 1][x] = actual_nb
@@ -26,7 +26,7 @@ def move_up(mem, x, y, times, final_pos):
 
 def move_left(mem, x, y, times, final_pos):
 	for i in xrange(times):
-		positions = [mem[y+1][x-1], mem[y+1][x], mem[y+1][x+1], mem[y][x-1], mem[y][x-1], mem[y][x], mem[y-1][x-1], mem[y-1][x], mem[y-1][x+1]]
+		positions = [mem[y+1][x-1], mem[y+1][x], mem[y+1][x+1], mem[y][x-1], mem[y][x], mem[y][x+1], mem[y-1][x-1], mem[y-1][x], mem[y-1][x+1]]
 		actual_nb = sum(positions)
 		if actual_nb <= final_pos:
 			mem[y][x - i - 1] = actual_nb
@@ -36,7 +36,7 @@ def move_left(mem, x, y, times, final_pos):
 
 def move_down(mem, x, y, times, final_pos):
 	for i in xrange(times):
-		positions = [mem[y+1][x-1], mem[y+1][x], mem[y+1][x+1], mem[y][x-1], mem[y][x-1], mem[y][x], mem[y-1][x-1], mem[y-1][x], mem[y-1][x+1]]
+		positions = [mem[y+1][x-1], mem[y+1][x], mem[y+1][x+1], mem[y][x-1], mem[y][x], mem[y][x+1], mem[y-1][x-1], mem[y-1][x], mem[y-1][x+1]]
 		actual_nb = sum(positions)
 		if actual_nb <= final_pos:
 			mem[y - i - 1][x] = actual_nb
@@ -77,45 +77,6 @@ def create_spiral_memory(final_pos):
 
 #		move_right(memory, x_init, y_init, add, final_pos)
 	return memory
-
-
-def find_min(memory, number):
-	#y, x = find_number(memory, number)
-	found = False
-	for i, row in enumerate(memory):
-			for j, col in enumerate(row):
-				if col == number:
-					y = i
-					x = j
-					found = True
-					break
-			if found:
-				break
-
-	# print "x = {} \t y = {} \t nb = {}".format(x, y, memory[y][x])
-	positions = [memory[y][x + 1], memory[y]
-              [x - 1], memory[y + 1][x], memory[y - 1][x]]
-
-	min_nb = min(positions)
-
-	# print "min neighbor = {}".format(min_nb)
-	return min_nb
-
-
-def calculate_manhattan_distance(nb, memory):
-	# find minimum neighbor
-	dist = 0
-	neighbor = -1
-	# print memory
-	print ""
-	while neighbor != 1:
-		# print memory, nb
-		neighbor = find_min(memory, nb)
-		dist += 1
-		nb = neighbor
-		# print "distance = {}".format(dist)
-
-	return dist
 
 
 final_num = int(sys.argv[1])
