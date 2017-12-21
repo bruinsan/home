@@ -1,12 +1,10 @@
 
 
+
 def check_passphrase(phrase):
     listed_phrase = phrase.split()
     for word in listed_phrase:
-        if listed_phrase.count(word) > 1:
-            return False
-    return True
-             
+                     
 
 
 
