@@ -3,9 +3,14 @@
 
 def check_passphrase(phrase):
     listed_phrase = phrase.split()
+    sorted_phrase = list()
     for word in listed_phrase:
-                     
-
+        sorted_phrase.append(''.join(sorted(word)))
+    
+    for word in sorted_phrase:
+        if sorted_phrase.count(word) > 1:
+            return False
+    return True
 
 
 file_name = "input.txt"
