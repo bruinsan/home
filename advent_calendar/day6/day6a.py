@@ -57,7 +57,7 @@ if __name__ == "__main__":
     write_list_to_file(list_input)
     EQUAL = False
     while not EQUAL:
-        _line = get_last_list()
+        _line = eval(get_last_list())   # convert the string to list using eval
         _line_redist = redistribute(get_index_max(_line), _line)
         if not check_memory_bank_exists(_line_redist):
             write_list_to_file(_line_redist)
