@@ -1,5 +1,5 @@
 
-input_file = "input_file_test.txt"
+input_file = "input_file.txt"
 output_file = "output_file.txt"
 
 def read_input():
@@ -36,10 +36,13 @@ def redistribute(max_index, _list):
     return _list
 
 def check_memory_bank_exists(_list):
-    # write to file a memory bank list if it doesn't exist
+    # check if _list doesn't exist in the file
     with open(output_file, "r") as fl:
-        pass
-    return False
+        for old_list in fl:
+            if old_list.split("\n")[0] == str(_list):   # convert e verything to string to compare
+                return True
+        else:
+            return False
 
 def write_list_to_file(_list):
     with open(output_file, "a") as fl:
@@ -56,6 +59,7 @@ if __name__ == "__main__":
     
     write_list_to_file(list_input)
     EQUAL = False
+    counter = 0
     while not EQUAL:
         _line = eval(get_last_list())   # convert the string to list using eval
         _line_redist = redistribute(get_index_max(_line), _line)
@@ -63,4 +67,5 @@ if __name__ == "__main__":
             write_list_to_file(_line_redist)
         else:
             EQUAL = True
-        
+        counter += 1
+    print counter
