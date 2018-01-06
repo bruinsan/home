@@ -38,11 +38,11 @@ def redistribute(max_index, _list):
 def check_memory_bank_exists(_list):
     # check if _list doesn't exist in the file
     with open(output_file, "r") as fl:
-        for old_list in fl:
+        for line_nb, old_list in enumerate(fl):
             if old_list.split("\n")[0] == str(_list):   # convert e verything to string to compare
-                return True
+                return True, line_nb
         else:
-            return False
+            return False, line_nb
 
 def write_list_to_file(_list):
     with open(output_file, "a") as fl:
@@ -56,16 +56,19 @@ def get_last_list():
 
 if __name__ == "__main__":
     list_input = read_input()       # get initial list
-    
     write_list_to_file(list_input)
+    
     EQUAL = False
     counter = 0
+    
     while not EQUAL:
         _line = eval(get_last_list())   # convert the string to list using eval
         _line_redist = redistribute(get_index_max(_line), _line)
-        if not check_memory_bank_exists(_line_redist):
+        ret, line_nb = check_memory_bank_exists(_line_redist)
+        if not ret:
             write_list_to_file(_line_redist)
         else:
             EQUAL = True
         counter += 1
     print counter
+    print counter - line_nb
