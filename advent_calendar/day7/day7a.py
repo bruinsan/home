@@ -24,17 +24,18 @@ def update_parents_dict(tree):
     it should return a list with a the pair
     [element,parent]
     """
-    elements = dict()
+#    elements = dict()
+    for val in tree:    # walking through the keys
+        print "key = {}".format(val)
+        if tree[val]['child'] != None:
+            for child in tree[val]['child']:
+                tree[child] = {'parent':val}
 
-    for val in tree.values():
-        if val['child'] == None:
-        # it is a parent
-        # we need to update 
-            pass
-
-    return elements
+#    return elements
 
 if __name__ == "__main__":
     d = create_tree_list()
-    import IPython;IPython.embed()
+    #import IPython;IPython.embed()
     pprint(d)
+
+    update_parents_dict(d)
