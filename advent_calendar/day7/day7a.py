@@ -26,16 +26,24 @@ def update_parents_dict(tree):
     """
 #    elements = dict()
     for val in tree:    # walking through the keys
-        print "key = {}".format(val)
         if tree[val]['child'] != None:
             for child in tree[val]['child']:
-                tree[child] = {'parent':val}
+                tree[child]['parent'] = val
 
 #    return elements
 
 if __name__ == "__main__":
     d = create_tree_list()
     #import IPython;IPython.embed()
-    pprint(d)
+    #pprint(d)
+
+    for key in d:
+        d[key]['parent'] = None
 
     update_parents_dict(d)
+
+    pprint(d)
+
+    for key in d:
+        if d[key]['parent'] == None:
+            print key
