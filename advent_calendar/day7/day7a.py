@@ -1,6 +1,7 @@
 from pprint import pprint
+import sys
 
-input_file = "input.txt"
+input_file = sys.argv[1]
 
 def create_tree_list():
     tree_list = dict()
@@ -21,22 +22,20 @@ def update_parents_dict(tree):
     where the keys are the names and the values
     dictionaries for weight and children
 
-    it should return a list with a the pair
-    [element,parent]
+    update tree adding the parents to each node
     """
-#    elements = dict()
     for val in tree:    # walking through the keys
         if tree[val]['child'] != None:
             for child in tree[val]['child']:
                 tree[child]['parent'] = val
 
-#    return elements
 
 if __name__ == "__main__":
     d = create_tree_list()
     #import IPython;IPython.embed()
     #pprint(d)
 
+    # initialize the parent field to all nodes
     for key in d:
         d[key]['parent'] = None
 
@@ -45,5 +44,6 @@ if __name__ == "__main__":
     pprint(d)
 
     for key in d:
+        # if there is no parent so the node is a base
         if d[key]['parent'] == None:
             print key
