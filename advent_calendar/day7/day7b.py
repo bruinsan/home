@@ -1,7 +1,6 @@
 from pprint import pprint
 import sys
 
-
 input_file = sys.argv[1]
 
 def create_tree_list():
@@ -31,76 +30,92 @@ def update_parents_dict(tree):
                 tree[child]['parent'] = val
 
 def acumulated_sum(tree,node):
-    # create field acumulated sum
-    """    for key in tree:
-        tree[key]['ac_sum'] = int(tree[key]['weight'])
-
-    for key in tree:
-        parent = tree[key]['parent']
-        if parent != None:
-            tree[parent]['ac_sum'] += int(tree[key]['ac_sum'])
-        else:
-            print "##################################################################"
-    """
-
-    """ node is a dictionary """
-    #import IPython;IPython.embed()
-    #print "node = {}".format(node)
-    element = tree[node]
-    if element['child'] is None:
+    if tree[node]['child'] is None:
         # leaf
-        return  int(element['ac_sum'])
+        return tree[node]['ac_sum']
     else:
-        ac_sum = []
-        for child in element['child']:
-            #print "child = {} \t elem(ac_sum) = {}".format(tree[child], element['ac_sum'])
-            #import ipdb; ipdb.set_trace()
-            #print "{} \t {}".format(element['ac_sum'], acumulated_sum(tree, child))
-            ac_sum.append(acumulated_sum(tree, child))
-            #element['ac_sum'] += acumulated_sum(tree,child)
-            #print "sum = {} \t ac_sum = {}".format(_sum, element['ac_sum'])
-        element['ac_sum'] = sum(ac_sum)
-        return sum(ac_sum)
-        #print "out"
-         
-    """
-    for key in tree:
-        tree[key]['ac_sum'] = int(tree[key]['weight'])
-        if tree[key]['child'] == None:
-            # loop getting parents in order
-            pass    
-    """
-    
+		# update node weight with the children calls
+        for child in tree[node]['child']:
+            tree[node]['ac_sum'] += acumulated_sum(tree,child)
+        return tree[node]['ac_sum']
+"""
+def update_tree(tree):
+    for key in tree.keys():
+        if not tree[key]['child'] in tree.keys():
+        # new leaf
+            tree[key]['child'] = None
 
-def get_weight_difference(tree):
-    for key in tree:
-        if tree[key]['parent'] is None:
-            for child in tree[key]['child']:
-                print "child = {} \t weight = {}".format(child,tree[child]['ac_sum'])
+def print_level(tree):
+    # update after each level
+    #print tree[base]
+    print "##########"
+    while tree:
+        for key in tree.keys():
+            if tree[key]['child'] == None :
+                print tree[key]
+                #print key
+                tree.pop(key)
+        update_tree(tree)
+        print "##########"
+""" 
+
+def print_complete_node(tree, node):
+    if tree[node]['child'] == None:
+        print node
+        return tree[node]['child']
+    else:
+        for child in tree[node]['child']:
+            #tree[node]['ac_sum'] += acumulated_sum(tree,child)
+            print child
+            print_complete_node(tree, child)
+        print "########"
+        return tree[node]['child']
+        
 
 if __name__ == "__main__":
     d = create_tree_list()
-    #import IPython;IPython.embed()
-    #pprint(d)
-
+    
     # initialize the parent field to all nodes
     for key in d:
         d[key]['parent'] = None
 
     update_parents_dict(d)
 
-
+    
     for key in d:
         # if there is no parent so the node is a base
         if d[key]['parent'] == None:
             #print "base = {} and children = {}".format(key,d[key]['child'])
             base = key
 
+    
     # initialize ac_sum
     for key in d:
-        d[key]['ac_sum'] = int(d[key]['weight'])
-
+		d[key]['ac_sum'] = int(d[key]['weight'])
+    
     acumulated_sum(d,base)
-    pprint(d)
-
-    #get_weight_difference(d)
+    #pprint(d)
+    
+    """
+    for child in d[base]['child']:
+        print child
+        pprint(d[child])
+    """
+    
+    #pprint(d)
+    #print_complete_node(d, 'gqmls')
+    #print_level(d)
+    pprint(d['gqmls'])
+    for child in d['gqmls']['child']:
+        print(child)
+        pprint(d[child])
+        
+    for child in d['jfdck']['child']:
+        print(child)
+        pprint(d[child])
+        
+    for child in d['marnqj']['child']:
+        print(child)
+        pprint(d[child])
+    
+                
