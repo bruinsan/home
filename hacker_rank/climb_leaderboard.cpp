@@ -4,14 +4,25 @@ using namespace std;
 
 vector<string> split_string(string);
 
-/*
- * Complete the climbingLeaderboard function below.
- */
-vector<int> climbingLeaderboard(vector<int> scores, vector<int> alice) {
-    /*
-     * Write your code here.
-     */
+int findRankPosition(int scr, vector<int> scores)
+{
+  int rank = 1;)
 
+  for(int i=0 ; i<scores.size() ; i++)
+  {
+    int value = scores[i]
+
+    if(scr < scores[i])
+  }
+}
+
+vector<int> climbingLeaderboard(vector<int> scores, vector<int> alice) {
+  vector<int> rank(alice.size());
+	
+  for(int i=0 ; i < alice.size() ; i++)
+  {
+     
+  }
 }
 
 int main()
