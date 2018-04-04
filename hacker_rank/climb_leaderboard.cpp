@@ -33,10 +33,16 @@ int findRankPosition(int scr, vector<int> scores)
 //      }
 //    }
 //  }
-  while(scr < rival || rival = scores.last())
+  rivalIndex = 0;
+  rival = scores[0];
+  rank = 1;
+  rivalRank = 1
+  while(scr < rival && rival != scores.last())
   {
-
+    rival 
+    rank
   }
+
 }
 
 vector<int> climbingLeaderboard(vector<int> scores, vector<int> alice) {
