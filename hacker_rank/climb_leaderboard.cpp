@@ -34,13 +34,22 @@ int findRankPosition(int scr, vector<int> scores)
 //    }
 //  }
   rivalIndex = 0;
-  rival = scores[0];
+  rival = scores[rivalIndex];
   rank = 1;
   rivalRank = 1
   while(scr < rival && rival != scores.last())
   {
-    rival 
-    rank
+    rivalIndex++;
+    rival = scores[rivalIndex];
+
+    if (rival == scores[rivalIndex - 1]) 
+    {
+      // rivalRank doesn't change
+    } 
+    else{
+      rivalRank++;
+      rank++;
+    }
   }
 
 }
