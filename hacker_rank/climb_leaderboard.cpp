@@ -6,32 +6,36 @@ vector<string> split_string(string);
 
 int findRankPosition(int scr, vector<int> scores)
 {
-  int rank = 1;
+//  int rank = 1;
+//
+//  if(scr > scores[0])
+//  {
+//    return rank;
+//  }
+//  else
+//  {
+//    for(int i=1 ; i<scores.size() ; i++)
+//    {
+//      int value = scores[i]
+//      
+//      if(scr < scores[i])
+//      {
+//        // compare if the next value is equal or not
+//        if(scores[i-1] == scores[i])
+//        {
+//  	// rank position is the same. eg. 100 100 50 40 40 20 10
+//          // rank will not change
+//        }
+//        else
+//        {
+//  	rank++;
+//        }
+//      }
+//    }
+//  }
+  while(scr < rival || rival = scores.last())
+  {
 
-  if(scr > scores[0])
-  {
-    return rank;
-  }
-  else
-  {
-    for(int i=1 ; i<scores.size() ; i++)
-    {
-      int value = scores[i]
-      
-      if(scr < scores[i])
-      {
-        // compare if the next value is equal or not
-        if(scores[i-1] == scores[i])
-        {
-  	// rank position is the same. eg. 100 100 50 40 40 20 10
-          // rank will not change
-        }
-        else
-        {
-  	rank++;
-        }
-      }
-    }
   }
 }
 
