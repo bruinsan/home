@@ -44,7 +44,7 @@ vector<int> climbingLeaderboard(vector<int> scores, vector<int> alice) {
 	
   for(int i=0 ; i < alice.size() ; i++)
   {
-     
+    rank.push_back(findRankPosition(alice[i], scores) );
   }
 }
 
