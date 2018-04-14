@@ -6,39 +6,14 @@ vector<string> split_string(string);
 
 int findRankPosition(int scr, vector<int> scores)
 {
-//  int rank = 1;
-//
-//  if(scr > scores[0])
-//  {
-//    return rank;
-//  }
-//  else
-//  {
-//    for(int i=1 ; i<scores.size() ; i++)
-//    {
-//      int value = scores[i]
-//      
-//      if(scr < scores[i])
-//      {
-//        // compare if the next value is equal or not
-//        if(scores[i-1] == scores[i])
-//        {
-//  	// rank position is the same. eg. 100 100 50 40 40 20 10
-//          // rank will not change
-//        }
-//        else
-//        {
-//  	rank++;
-//        }
-//      }
-//    }
-//  }
-  rivalIndex = 0;
-  rival = scores[rivalIndex];
-  rank = 1;
-  rivalRank = 1
-  while(scr < rival && rival != scores.last())
+  int rivalIndex = 0;
+  int rival = scores[rivalIndex];
+  int rank = 1;
+  int rivalRank = 1;
+  while(scr < rival && rival != scores.back())
   {
+
+    //cout << "here" << endl;
     rivalIndex++;
     rival = scores[rivalIndex];
 
@@ -51,16 +26,23 @@ int findRankPosition(int scr, vector<int> scores)
       rank++;
     }
   }
-
+  return rank;
 }
 
 vector<int> climbingLeaderboard(vector<int> scores, vector<int> alice) {
-  vector<int> rank(alice.size());
-	
+  vector<int> vector_rank(alice.size());
+  int _rank = 0;	
   for(int i=0 ; i < alice.size() ; i++)
   {
-    rank.push_back(findRankPosition(alice[i], scores) );
+    _rank = findRankPosition(alice[i], scores);
+    //vector_rank.push_back(_rank);
+    vector_rank[i] = _rank;
   }
+
+//  for (int i=0; i<alice.size();i++){
+//  cout << rank[i] << endl;
+//  }
+  return vector_rank;
 }
 
 int main()
@@ -104,10 +86,12 @@ int main()
     vector<int> result = climbingLeaderboard(scores, alice);
 
     for (int result_itr = 0; result_itr < result.size(); result_itr++) {
-        fout << result[result_itr];
+        //fout << result[result_itr];
+        cout << result[result_itr];
 
         if (result_itr != result.size() - 1) {
-            fout << "\n";
+            //fout << "\n";
+            cout << "\n";
         }
     }
 
