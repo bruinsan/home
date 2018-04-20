@@ -3,26 +3,40 @@
     <title>Register</title>
 </head>
 <body>
-    <form>
-        First Name: <input type="text"><br>
-        Last Name: <input type="text"><br>
-        Email: <input type="email" required><br>
-        Password: <input type="password" min="5"><br>
-        Birthday: <input type="date"><br>
+    <!-- Using GET not POST(it will hide all data from URL) -->
+    <!-- "name" attribute is for the url data once we submit our form -->
+    <!-- "value" is the value sent with the name in the URL-->
+    <div>
+    <!-- div separate content, used on CSS part -->
+    <form method="GET">
+        First Name: <input type="text" name="firstname"><br>
+        Last Name: <input type="text" name="lastname"><br>
+        Email: <input type="email" name="email" required><br>
+        Password: <input type="password" name="password" min="5"><br>
+        Birthday: <input type="date" name="birthday"><br>
         Gender:<br>
-        <input type="radio" name="gender">Male<br>
-        <input type="radio" name="gender">Famale<br>
-        <input type="radio" name="gender">Other<br>
+        <input type="radio" name="gender" value="Male">Male<br>
+        <input type="radio" name="gender" value="Female">Female<br>
+        <input type="radio" name="gender" value="Other">Other<br>
         Pets: <br>
-        <input type="checkbox"> Cat<br>
-        <input type="checkbox"> Dog<br>
+        <input type="checkbox" name="cat"> Cat<br>
+        <input type="checkbox" name="dog"> Dog<br>
         Cars: <br>
-        <select>
+        <select name="cars">
             <option value="volvo">Volvo</option>
             <option value="audi">Audi</option>
         </select><br>
         <input type="submit" value="Register!">
         <input type="reset">
     </form>
+    </div>
+
+    <!-- <header>
+        <h1>Register </h1>
+    </header>
+    <nav>
+        <a href="www.google.com">Test</a>
+    </nav>
+    <footer>The revolution begins</footer> -->
 </body>
 </html>
