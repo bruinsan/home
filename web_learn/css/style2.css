@@ -1,0 +1,16 @@
+/* Selector{
+    Property: value;
+} */
+
+h2{
+    color: red;
+}
+
+p{
+    color: pink;
+}
+
+ul{
+    background-color: blue;
+    color: white;
+}
