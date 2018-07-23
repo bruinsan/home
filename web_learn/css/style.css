@@ -2,10 +2,39 @@
     Property: value;
 } */
 
-h2{
-    color: red;
+body{
+    background-image: url(https://images2.alphacoders.com/722/thumb-1920-72270.jpg);
+    background-size: cover
+}
+
+h2, p{
+    color: #FFB0AA;
+    text-align: center;
+    border: 5px solid darkblue;
+    cursor: help;
 }
 
 p{
-    color: pink;
+    color: green;
+}
+
+li{
+    list-style: none;
+    display: inline-table;
+}
+
+.blabla{
+    border: 3px dashed green;
+}
+
+.master{
+    color: white;
+}
+
+#id1{
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#id2{
+    background: rgba(255, 255, 0, 0.2);
 }
