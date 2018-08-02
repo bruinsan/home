@@ -2,6 +2,24 @@
 
 using namespace std;
 
+string timeNbToWord(int minutes)
+{
+    vector<string> less_twenty = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+                                   "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen",
+                                   "eighteen", "nineteen" };
+
+    vector<string> more_twenty = { "twenty", "thirty", "fourty", "fifty"};
+    
+    if (minutes < 20)
+    {
+        return less_twenty[minutes - 1];
+    }
+    else
+    {
+        return more_twenty[minutes/10 - 2] + " " + less_twenty[minutes%10 - 1];
+    }
+}
+
 // Complete the timeInWords function below.
 string timeInWords(int h, int m) {
     /*
@@ -9,30 +27,19 @@ string timeInWords(int h, int m) {
     past
     to
     */
-    vector<string> one_ten = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
-    vector<string> eleven_twenty = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
-    vector<string> third_fifty = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
-    
-    string whatTimeIs;
     
     if(m == 0)
     { 
-        whatTimeIs = "o' clock";
-        return one_ten[h] + " " + whatTimeIs;
+        return timeNbToWord(h) + " o' clock";
     }
     else{
         if(m <= 30)
         {
-            whatTimeIs = "past"; 
-            return minutes + " past " + one_ten[h];
-        }else{ 
-            whatTimeIs = "to"; 
+            return timeNbToWord(m) + " past " + timeNbToWord(h);
+        }else{
+            return timeNbToWord(60-m) + " to " + timeNbToWord(h+1);
         }
     }
-        
-    return whatTimeIs;
-
-    return "eita";
 }
 
 int main()
