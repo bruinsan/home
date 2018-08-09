@@ -31,64 +31,35 @@ uint64_t vector_sum(std::vector<uint64_t> vec)
 
 uint64_t quick_master_3_5(int nb)
 {
-    uint64_t mul_3 = (nb-1)/3;
-    uint64_t mul_5 = (nb-1)/5;
-    std::vector<uint64_t> vec_mul;
-    for (int i=1 ; i<= mul_3 ; i++)
-    {
-        vec_mul.push_back(i*3);
-    }
+    float mul_3 = (nb-1)/3;
+    float mul_5 = (nb-1)/5;
+    float mul_15 = (nb-1)/15;
 
-    for (int i=1 ; i<= mul_5 ; i++)
-    {
-        vec_mul.push_back(i*5);
-    }
+    float mmm3 = mul_3 * 3;
+    float mmm5 = mul_5 * 5;
+    float mmm15 = mul_15 * 15;
+
+    float sum = 0;
     
-    std::cout << vector_sum(vec_mul) << std::endl;
+//    uint64_t mul_3 = (nb-1)/3;
+//    uint64_t mul_5 = (nb-1)/5;
+//    uint64_t mul_15 = (nb-1)/15;
+//
+//    uint64_t mmm3 = mul_3 * 3;
+//    uint64_t mmm5 = mul_5 * 5;
+//    uint64_t mmm15 = mul_15 * 15;
+//
+//    uint64_t sum = 0;
+
+    sum += ((3 + mmm3) / 2) * mul_3;
+    //std::cout << sum << std::endl;
+    sum += ((5 + mmm5) / 2) * mul_5;
+    sum -= ((15 + mmm15) / 2) * mul_15;
+
+    return sum;
+
 }
 
-
-//int quick_multiple_3_5(int limit_seq)
-//{
-//    int multiple = 1;
-//    std::vector<int> vec_multiples;
-//    vec_multiples.push_back(0);
-//    while(vec_multiples.back() < limit_seq)
-//    {
-////        std::cout << "multiple value --> " << multiple << std::endl;
-//        int aux = multiple*3;
-//        if(std::find(vec_multiples.begin(), vec_multiples.end(), aux) == vec_multiples.end())
-//        {// multiples vector does not have the element, so we push back it
-// //           std::cout << "aux value --> " << aux << std::endl;
-//            vec_multiples.push_back(aux);
-//        }
-//    
-//        aux = multiple*5;
-//        if(std::find(vec_multiples.begin(), vec_multiples.end(), aux) == vec_multiples.end())
-//        {// multiples vector does not have the element, so we push back it
-// //           std::cout << "aux value --> " << aux << std::endl;
-//            vec_multiples.push_back(aux);
-//        }
-//
-//        multiple++;
-//    }
-//   
-//    vec_multiples.pop_back(); // remove last element, it is greater than the limit
-//    int aux = multiple*3;
-//    if(std::find(vec_multiples.begin(), vec_multiples.end(), aux) == vec_multiples.end())
-//    {// multiples vector does not have the element, so we push back it
-// //       std::cout << "aux value --> " << aux << std::endl;
-//        vec_multiples.push_back(aux);
-//    }
-////    std::cout << "printing vector" << std::endl;
-////    for(std::vector<int>::iterator it = vec_multiples.begin() ; it != vec_multiples.end() ; it++)
-////    {
-////        std::cout << *it << std::endl;
-////    }
-////    std::cout << "vector's sum --> " << vector_sum(vec_multiples) << std::endl;
-////    return vector_sum(vec_multiples);
-//
-//}
 
 int main()
 {
@@ -107,10 +78,10 @@ int main()
 
     for(it = vec_nb.begin() ; it != vec_nb.end() ; it++)
     { 
-      //  std::cout << sum_multiple_3_5(*it) << std::endl;
+      //    std::cout << sum_multiple_3_5(*it) << std::endl;
       //  std::cout << "quick calculus" << std::endl;
 //        std::cout << quick_multiple_3_5(*it) << std::endl;
-        quick_master_3_5(*it);
+          std::cout << quick_master_3_5(*it) << std::endl;
     }
 
     return 0;
