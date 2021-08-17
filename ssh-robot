@@ -1,4 +1,0 @@
-#!/bin/bash 
- 
-ssh -o TCPKeepAlive=yes -o ServerAliveInterval=50 nao@10.0.$1 
-
